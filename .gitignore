@@ -1,0 +1,4 @@
+ngrok.exe
+.env
+node_modules
+.history
