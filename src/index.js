@@ -1,12 +1,16 @@
-import express from 'express';
-import morgan from 'morgan';
-import paymentRoutes from './routes/payment.js'; //all modulo used .js is make for me
-import { PORT } from './config.js';
+import express from "express";
+import morgan from "morgan";
+import path from "path";
+
+import paymentRoutes from "./routes/payment.routes.js";
 
 const app = express();
-app.use(morgan('dev')); // show in console, put,get, post, delete  //GET / 200 4.903 ms - 2
+
+app.use(morgan("dev"));
 
 app.use(paymentRoutes);
 
-app.listen(PORT);
-console.log('server on port', PORT);
+app.use(express.static(path.resolve("src/public")));
+
+app.listen(3000);
+console.log("Server on port", 3000);
